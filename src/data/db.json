@@ -1,0 +1,20 @@
+{
+    "produtos": [
+      {
+        "id": 1,
+        "nome": "Cadeira Gamer",
+        "preco": 899.99
+      },
+      {
+        "id": 2,
+        "nome": "Teclado Mecânico",
+        "preco": 299.90
+      },
+      {
+        "id": 3,
+        "nome": "Mouse Sem Fio",
+        "preco": 149.50
+      }
+    ]
+  }
+  
