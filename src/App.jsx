@@ -6,7 +6,7 @@ const url = "http://localhost:3000/produtos"
 function App() {
   const [produtos, setProdutos] = useState([])
 
-  const {data:items} = useFetch(url)
+  const {data:items, httpConfig} = useFetch(url)
   const [nome, setNome] = useState("")
   const [preco, setPreco] = useState(0)
   //2 - ADICIONANDO PRODUTOS
@@ -16,17 +16,10 @@ function App() {
       nome,
       preco
     }
-    const res = await fetch(url,{
-      method: "POST",
-      headers:{
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(prod)
-    })
-
-    //3 - carregamento dinâmico
-    const produtoAdicionando = await res.json()
-    setProdutos((prevProduct) => [...prevProduct, produtoAdicionando])
+    // //3 - carregamento dinâmico
+    // const produtoAdicionando = await res.json()
+    // setProdutos((prevProduct) => [...prevProduct, produtoAdicionando])
+    httpConfig(prod, "POST")
     setNome("")
     setPreco("")
 
