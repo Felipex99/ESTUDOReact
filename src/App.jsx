@@ -7,17 +7,20 @@ function App() {
   const [produtos, setProdutos] = useState([])
   const [nome, setNome] = useState("")
   const [preco, setPreco] = useState(0)
-
+  //2 - ADICIONANDO PRODUTOS
   const handleSubmit = async (e) => {
-    e.preventDefault()
-
     const prod = {
       nome,
       preco
     }
 
-    const res = await fetch(url)
-    const add = await res.json()
+    const res = await fetch(url,{
+      method: "POST",
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(prod)
+    })
   }
 
   useEffect(() => {
